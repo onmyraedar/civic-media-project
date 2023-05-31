@@ -1,3 +1,9 @@
+.divider {
+  background-color: #343A40;
+  border-radius: 4px;
+  height: 2.5px;
+}
+
 .light-gray-bckgd {
   background-color: #ECECEC;
 }
