@@ -47,7 +47,7 @@ export default function Homepage() {
     <Container fluid className="flex-grow-1 d-flex flex-column">
       <Row className="flex-grow-1">
         <Col lg={8} className="p-4">
-          <h3>Exercises</h3>
+          <h4>Exercises</h4>
           <p>One-hour exercises connecting technology with race and equity.</p>
           <Row xs={1} sm={2} className="g-4">
             {exerciseCards.map((card) => (
@@ -62,8 +62,8 @@ export default function Homepage() {
             ))}
           </Row>
         </Col>
-        <Col lg={4} className="d-flex flex-column p-4 light-gray-bckgd">
-          <h3 className="mb-4">Teacher Resources</h3>
+        <Col lg={4} className="teacher-resource-col d-flex flex-column p-4 light-gray-bckgd">
+          <h4 className="mb-4">Teacher Resources</h4>
             {teacherResourceCards.map((card) => (
               <TeacherResourceCard
                 key={card.index}
@@ -73,7 +73,7 @@ export default function Homepage() {
               />
             ))}
           <div className="divider mb-4"></div>
-          <Button as="a" href="#twiceover" variant="dark">
+          <Button as="a" className="podcast-btn py-2" href="#twiceover" variant="dark">
             VISIT THE TWICE OVER PODCAST
           </Button>
         </Col>

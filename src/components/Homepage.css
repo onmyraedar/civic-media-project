@@ -7,3 +7,8 @@
 .light-gray-bckgd {
   background-color: #ECECEC;
 }
+
+/* Selectors need to be specific to override Bootstrap default styles */
+.teacher-resource-col .podcast-btn {
+  font-weight: 600;
+}
