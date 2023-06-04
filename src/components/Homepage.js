@@ -73,7 +73,11 @@ export default function Homepage() {
               />
             ))}
           <div className="divider mb-4"></div>
-          <Button as="a" className="podcast-btn py-2" href="#twiceover" variant="dark">
+          <Button 
+            as="a"
+            href="https://twiceoverpodcast.com"
+            className="podcast-btn py-2"
+            variant="dark">
             VISIT THE TWICE OVER PODCAST
           </Button>
         </Col>
