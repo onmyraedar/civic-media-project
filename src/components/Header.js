@@ -13,6 +13,18 @@ import { HouseDoorFill, Search } from "react-bootstrap-icons";
 import Logo from "../assets/logo.svg";
 
 export default function Header() {
+
+  const exercises = [
+    {
+      id: "1",
+      title: "Motion Capture",
+    },
+    {
+      id: "2",
+      title: "Facial Recognition",
+    }
+  ];
+
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
       <Container fluid>
@@ -31,7 +43,7 @@ export default function Header() {
           </Offcanvas.Header>
           <Offcanvas.Body className="overflow-y-scroll">
             <Nav>
-              <Nav.Link href="#home">
+              <Nav.Link href="/">
                 <Button variant="dark">
                   <HouseDoorFill className="d-none d-lg-block" color="white" size={24}/>
                   <span className="d-lg-none">Home</span>
@@ -40,8 +52,13 @@ export default function Header() {
               <Dropdown as={NavItem} className="align-self-lg-center ms-lg-1 me-lg-3">
                 <Dropdown.Toggle variant="dark">Exercises</Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#motioncapture">Motion Capture</Dropdown.Item>
-                  <Dropdown.Item href="#facialrec">Facial Recognition</Dropdown.Item>
+                  {exercises.map((exercise) => (
+                  <Dropdown.Item 
+                    key={exercise.id}
+                    href={`/exercises/${exercise.id}`}>
+                    {exercise.title}
+                  </Dropdown.Item>
+                  ))}
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
