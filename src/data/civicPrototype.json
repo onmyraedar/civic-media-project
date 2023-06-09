@@ -1,0 +1,188 @@
+{
+  "teacherResources":[
+    {
+      "id": "1",
+      "order":1,
+      "title": "How to talk about race",
+      "shortDesc": "Join a panel...",
+      "longDesc": "Join a panel discussion on best practices in facilitating discussions around issues of race, class, and gender.",
+      "lengthInMin": 15,
+      "refLink": "http://www.google.com",
+      "refLinkInNewWin": true
+    },
+    {
+      "id": "2",
+      "order":2,
+      "title": "Adapting exercises",
+      "shortDesc": "A case-study on...",
+      "longDesc": "A case-study on how Civic Media Project exercises can be used by faculty.",
+      "lengthInMin": 25,
+      "refLink": "http://www.google.com",
+      "refLinkInNewWin": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "label": "NMDD"
+    },
+    {
+      "id": "2",
+      "label": "DTEM"
+    },
+    {
+      "id": "3",
+      "label": "COMC"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "1",
+      "title": "Motion Capture",
+      "categoryIDs":"1,2",
+      "shortDesc": "",
+      "longDesc": "Black expression through motion capture with creative technologist LaJune MacMillian.",
+      "coverImg": "",
+      "credit": "LaJune MacMillan",
+      "tags": "motion capture, black, dance, race",
+      "learnContent": [
+        {
+          "menuLabel": "Welcome",
+          "subLabel":"10 minutes",
+          "order": 1,
+          "media": "",
+          "text": "",
+          "type":"video",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        },
+        {
+          "menuLabel": "Example",
+          "subLabel":"20 minutes",
+          "order": 2,
+          "media": "",
+          "text": "",
+          "type":"video",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        },
+        {
+          "menuLabel": "Apply",
+          "subLabel":"15 minutes",
+          "order": 3,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        }
+      ],
+      "teachContent": [
+        {
+          "menuLabel": "Implementation Guide",
+          "subLabel":"Syllabus language, links, readings",
+          "order": 1,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "enableCopy": true
+        },
+        {
+          "menuLabel": "Examples",
+          "subLabel":"15 minutes",
+          "order": 2,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "enableCopy": false
+        },
+        {
+          "menuLabel": "Get Support",
+          "subLabel":"",
+          "order": 3,
+          "media": "",
+          "text": "",
+          "type":"contact",
+          "enableCopy": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Facial Recognition",
+      "categoryIDs":"1,2",
+      "shortDesc": "",
+      "longDesc": "Marginalization of POC in facial recognition with Gender Shades project at MIT Media Lab.",
+      "coverImg": "",
+      "credit": "Joy Buolamwini",
+      "tags": "",
+      "learnContent": [
+        {
+          "menuLabel": "Welcome",
+          "subLabel":"10 minutes",
+          "order": 1,
+          "media": "",
+          "text": "",
+          "type":"video",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        },
+        {
+          "menuLabel": "Example",
+          "subLabel":"20 minutes",
+          "order": 2,
+          "media": "",
+          "text": "",
+          "type":"video",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        },
+        {
+          "menuLabel": "Apply",
+          "subLabel":"15 minutes",
+          "order": 3,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "sourceType": "thirdparty",
+          "credit": "",
+          "sourceLink": ""
+        }
+      ],
+      "teachContent": [
+        {
+          "menuLabel": "Implementation Guide",
+          "subLabel":"Syllabus language, links, readings",
+          "order": 1,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "enableCopy": true
+        },
+        {
+          "menuLabel": "Examples",
+          "subLabel":"15 minutes",
+          "order": 2,
+          "media": "",
+          "text": "",
+          "type":"document",
+          "enableCopy": false
+        },
+        {
+          "menuLabel": "Get Support",
+          "subLabel":"",
+          "order": 3,
+          "media": "",
+          "text": "",
+          "type":"contact",
+          "enableCopy": false
+        }
+      ]
+    }
+  ]
+}

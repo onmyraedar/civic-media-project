@@ -10,7 +10,7 @@ export default function TeacherResourceCard({ title, description, time }) {
         <Card.Text>{description}</Card.Text>
         <Card.Text>
           <small className="text-body-secondary">
-            {time}
+            {time} minutes
           </small>
         </Card.Text>
       </Card.Body>
