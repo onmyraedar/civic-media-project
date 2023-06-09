@@ -1,3 +1,26 @@
+.learn-btn, .teach-btn {
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 0px 0px 15px 15px;
+  color: #152536;
+  font-weight: 600;
+}
+
+.learn-btn.btn-active, .teach-btn.btn-active {
+  background-color: white;
+  color: #152536;
+}
+
 .light-gray-bckgd {
   background-color: #ECECEC;
+}
+
+.sidebar .sidebar-header {
+  background-color: #262626;
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar .sidebar-menu-label {
+  font-weight: 600;
 }
