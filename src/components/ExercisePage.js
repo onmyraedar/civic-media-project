@@ -10,6 +10,8 @@ import Tab from 'react-bootstrap/Tab';
 
 import { LayoutTextSidebarReverse, PersonVideo, PlayBtn } from "react-bootstrap-icons";
 
+import data from "../data/civicPrototype.json";
+
 import "./ExercisePage.css";
 
 export default function ExercisePage() {
@@ -18,86 +20,10 @@ export default function ExercisePage() {
   const [activeTabKey, setActiveTabKey] = useState("#learn1");
   const [mode, setMode] = useState("learn");
 
-  const exercise = {
-    "id": 1,
-    "title": "Motion Capture",
-    "categoryIDs":"1,2",
-    "shortDesc": "",
-    "longDesc": "",
-    "coverImg": "",
-    "credit": "",
-    "tags": "motion capture, black, dance, race",
-    "learnContent": [
-      {
-        "id": "learn1",
-        "menuLabel": "Welcome",
-        "subLabel":"10 minutes",
-        "order": 1,
-        "media": "",
-        "text": "",
-        "type":"video",
-        "sourceType": "thirdparty",
-        "credit": "",
-        "sourceLink": ""
-      },
-      {
-        "id": "learn2",
-        "menuLabel": "Example",
-        "subLabel":"20 minutes",
-        "order": 2,
-        "media": "",
-        "text": "",
-        "type":"video",
-        "sourceType": "thirdparty",
-        "credit": "",
-        "sourceLink": ""
-      },
-      {
-        "id": "learn3",
-        "menuLabel": "Apply",
-        "subLabel":"15 minutes",
-        "order": 3,
-        "media": "",
-        "text": "",
-        "type":"document",
-        "sourceType": "thirdparty",
-        "credit": "",
-        "sourceLink": ""
-      }
-    ],
-    "teachContent": [
-      {
-        "id": "teach1",
-        "menuLabel": "Implementation Guide",
-        "subLabel":"Syllabus language, links, readings",
-        "order": 1,
-        "media": "",
-        "text": "",
-        "type":"document",
-        "enableCopy": true
-      },
-      {
-        "id": "teach2",
-        "menuLabel": "Examples",
-        "subLabel":"15 minutes",
-        "order": 2,
-        "media": "",
-        "text": "",
-        "type":"document",
-        "enableCopy": false
-      },
-      {
-        "id": "teach3",
-        "menuLabel": "Get Support",
-        "subLabel":"",
-        "order": 3,
-        "media": "",
-        "text": "",
-        "type":"contact",
-        "enableCopy": false
-      }
-    ]
-  }
+  const exercises = data.exercises;
+
+  // Each exercise should have a unique ID
+  const exercise = exercises.find(exercise => exercise.id === exerciseId)
 
   function getIcon(item) {
     if (item.type === "video") {
