@@ -1,21 +1,17 @@
 {
   "teacherResources":[
     {
-      "id": "1",
       "order":1,
       "title": "How to talk about race",
-      "shortDesc": "Join a panel...",
-      "longDesc": "Join a panel discussion on best practices in facilitating discussions around issues of race, class, and gender.",
+      "shortDesc": "Join a panel discussion on best practices in facilitating discussions around issues of race, class, and gender.",
       "lengthInMin": 15,
       "refLink": "http://www.google.com",
       "refLinkInNewWin": true
     },
     {
-      "id": "2",
       "order":2,
       "title": "Adapting exercises",
-      "shortDesc": "A case-study on...",
-      "longDesc": "A case-study on how Civic Media Project exercises can be used by faculty.",
+      "shortDesc": "A case-study on how Civic Media Project exercises can be used by faculty. ",
       "lengthInMin": 25,
       "refLink": "http://www.google.com",
       "refLinkInNewWin": true
@@ -37,55 +33,51 @@
   ],
   "exercises": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Motion Capture",
       "categoryIDs":"1,2",
-      "shortDesc": "",
-      "longDesc": "Black expression through motion capture with creative technologist LaJune MacMillian.",
-      "coverImg": "",
-      "credit": "LaJune MacMillan",
+      "shortDesc": "Black expression through motion capture with creative technologist LaJune MacMillian. ",
+      "longDesc": "**The Black Movement Project (BMP) **is a library for activists, performers & artists to create diverse XR projects, a space to research how and why we move, and an archive of Black existence. BMP seeks to grow community through the use of performances, XR experiences, workshops, conversations, and tool making. BMP incorporates a narrative component to be seen as both a live performance and movement portrait showing how Black movement has been used as a tool for the preservation of Black culture as well as a vehicle of self-evolution. This portrait follows the Movement journey of Nala Duma, a music producer, dancer, and artist living in NYC.",
+      "coverImg": "coverImages/blackExpression.png",
+      "credit": "Credit: LaJune MacMillan",
       "tags": "motion capture, black, dance, race",
       "learnContent": [
         {
-          "id": "learn1",
           "menuLabel": "Welcome",
           "subLabel":"10 minutes",
           "order": 1,
-          "media": "",
-          "text": "",
+          "mediaLink": "https://vimeo.com/536617639",
+          "mediaType": "vimeo",
+          "text": "**The Black Movement Project (BMP) **is a library for activists, performers & artists to create diverse XR projects, a space to research how and why we move, and an archive of Black existence. BMP seeks to grow community through the use of performances, XR experiences, workshops, conversations, and tool making. BMP incorporates a narrative component to be seen as both a live performance and movement portrait showing how Black movement has been used as a tool for the preservation of Black culture as well as a vehicle of self-evolution. This portrait follows the Movement journey of Nala Duma, a music producer, dancer, and artist living in NYC.",
           "type":"video",
           "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
+          "credit": "Credit: Black Public Media"
         },
         {
-          "id": "learn2",
           "menuLabel": "Example",
-          "subLabel":"20 minutes",
+          "subLabel":"19 minutes",
           "order": 2,
-          "media": "",
-          "text": "",
+          "mediaLink": "https://www.youtube.com/watch?v=-Ztp2w_vi3o",
+          "mediaType": "youtube",
+          "text": "This class is co-presented by Pioneer Works and the New York Public Library, and is part of a series of classes and tutorials offered in conjunction with NYPL’s Tech Kits for Performing Artists program. In this example, participants will create their first basic Augmented Reality project using Web XR. This workshop will also provide an introduction to avatar and motion capture creation using [Deepmotion](https://www.deepmotion.com/). No prior experience with these tools are needed. ",
           "type":"video",
           "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
+          "credit": "Credit: Pioneer Works"
         },
         {
-          "id": "learn3",
           "menuLabel": "Apply",
           "subLabel":"15 minutes",
           "order": 3,
-          "media": "",
+          "mediaLink": "",
+          "mediaType": "",
           "text": "",
           "type":"document",
           "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
+          "credit": ""
         }
       ],
       "teachContent": [
         {
-          "id": "teach1",
           "menuLabel": "Implementation Guide",
           "subLabel":"Syllabus language, links, readings",
           "order": 1,
@@ -95,7 +87,6 @@
           "enableCopy": true
         },
         {
-          "id": "teach2",
           "menuLabel": "Examples",
           "subLabel":"15 minutes",
           "order": 2,
@@ -105,87 +96,6 @@
           "enableCopy": false
         },
         {
-          "id": "teach3",
-          "menuLabel": "Get Support",
-          "subLabel":"",
-          "order": 3,
-          "media": "",
-          "text": "",
-          "type":"contact",
-          "enableCopy": false
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "title": "Facial Recognition",
-      "categoryIDs":"1,2",
-      "shortDesc": "",
-      "longDesc": "Marginalization of POC in facial recognition with Gender Shades project at MIT Media Lab.",
-      "coverImg": "",
-      "credit": "Joy Buolamwini",
-      "tags": "",
-      "learnContent": [
-        {
-          "id": "learn1",
-          "menuLabel": "Welcome",
-          "subLabel":"10 minutes",
-          "order": 1,
-          "media": "",
-          "text": "",
-          "type":"video",
-          "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
-        },
-        {
-          "id": "learn2",
-          "menuLabel": "Example",
-          "subLabel":"20 minutes",
-          "order": 2,
-          "media": "",
-          "text": "",
-          "type":"video",
-          "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
-        },
-        {
-          "id": "learn3",
-          "menuLabel": "Apply",
-          "subLabel":"15 minutes",
-          "order": 3,
-          "media": "",
-          "text": "",
-          "type":"document",
-          "sourceType": "thirdparty",
-          "credit": "",
-          "sourceLink": ""
-        }
-      ],
-      "teachContent": [
-        {
-          "id": "teach1",
-          "menuLabel": "Implementation Guide",
-          "subLabel":"Syllabus language, links, readings",
-          "order": 1,
-          "media": "",
-          "text": "",
-          "type":"document",
-          "enableCopy": true
-        },
-        {
-          "id": "teach2",
-          "menuLabel": "Examples",
-          "subLabel":"15 minutes",
-          "order": 2,
-          "media": "",
-          "text": "",
-          "type":"document",
-          "enableCopy": false
-        },
-        {
-          "id": "teach3",
           "menuLabel": "Get Support",
           "subLabel":"",
           "order": 3,
