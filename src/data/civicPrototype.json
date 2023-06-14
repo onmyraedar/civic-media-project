@@ -1,6 +1,7 @@
 {
   "teacherResources":[
     {
+      "id": "1",
       "order":1,
       "title": "A Terrain of Trust",
       "shortDesc": "In this episode, A Terrain of Trust, Anne and Steve are joined by Brandy Monk-Payton, Assistant Professor of Communication and Media Studies at Fordham University who shares her thoughts about representation, collaboration and effective instruction.",
@@ -9,6 +10,7 @@
       "refLinkInNewWin": true
     },
     {
+      "id": "2",
       "order":2,
       "title": "Diversity, Equity and Inclusion",
       "shortDesc": "In this episode, Diversity, Equity and Inclusion Anne and Steve are joined by Kendra Dunbar, Assistant Director for Equity and Inclusion at Fordham University who shares her thoughts about trauma and being supportive and engaged members of our University and classroom communities.",
@@ -33,7 +35,7 @@
   ],
   "exercises": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Motion Capture",
       "categoryIDs":"1,2",
       "shortDesc": "Black expression through motion capture with creative technologist LaJune MacMillian. ",
@@ -43,6 +45,7 @@
       "tags": "motion capture, black, dance, race",
       "learnContent": [
         {
+          "id": "learn1",
           "menuLabel": "Welcome",
           "subLabel":"5 minutes",
           "order": 1,
@@ -54,6 +57,7 @@
           "credit": "Credit: Black Public Media"
         },
         {
+          "id": "learn2",
           "menuLabel": "Example",
           "subLabel":"19 minutes",
           "order": 2,
@@ -65,6 +69,7 @@
           "credit": "Credit: Pioneer Works"
         },
         {
+          "id": "learn3",
           "menuLabel": "Apply",
           "subLabel":"15 minutes",
           "order": 3,
@@ -152,6 +157,7 @@
       ],
       "teachContent": [
         {
+          "id": "teach1",
           "menuLabel": "Implementation Guide",
           "subLabel":"Syllabus language, links, readings",
           "order": 1,
@@ -161,6 +167,7 @@
           "enableCopy": true
         },
         {
+          "id": "teach2",
           "menuLabel": "Examples",
           "subLabel":"15 minutes",
           "order": 2,
@@ -170,6 +177,7 @@
           "enableCopy": false
         },
         {
+          "id": "teach3",
           "menuLabel": "Get Support",
           "subLabel":"",
           "order": 3,
