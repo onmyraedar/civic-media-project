@@ -27,7 +27,7 @@ export default function Homepage() {
             <Col key={exercise.id}>
               <ExerciseCard
                 title={exercise.title}
-                description={exercise.longDesc}
+                description={exercise.shortDesc}
                 img={{src: placeholderImg, alt: ""}}
                 credit={exercise.credit}
               />
@@ -41,7 +41,7 @@ export default function Homepage() {
               <TeacherResourceCard
                 key={resource.id}
                 title={resource.title}
-                description={resource.longDesc}
+                description={resource.shortDesc}
                 time={resource.lengthInMin}
               />
             ))}

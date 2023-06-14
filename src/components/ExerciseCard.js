@@ -11,7 +11,7 @@ export default function ExerciseCard({ title, description, img, credit }) {
         <Card.Text className="light-gray-text">{description}</Card.Text>
         <Card.Text>
           <small className="light-gray-text text-body-secondary">
-            Credit: {credit}
+            {credit}
           </small>
         </Card.Text>
       </Card.Body>
