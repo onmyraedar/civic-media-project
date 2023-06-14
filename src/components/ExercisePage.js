@@ -6,12 +6,13 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
-import Tab from 'react-bootstrap/Tab';
+import Tab from "react-bootstrap/Tab";
+
+import ExerciseTabPane from "./ExerciseTabPane";
 
 import { LayoutTextSidebarReverse, PersonVideo, PlayBtn } from "react-bootstrap-icons";
 
 import data from "../data/civicPrototype.json";
-
 import "./ExercisePage.css";
 
 export default function ExercisePage() {
@@ -24,6 +25,13 @@ export default function ExercisePage() {
 
   // Each exercise should have a unique ID
   const exercise = exercises.find(exercise => exercise.id === exerciseId)
+
+  let activeContent = exercise.learnContent;
+  if (mode === "learn") {
+    activeContent = exercise.learnContent;
+  } else {
+    activeContent = exercise.teachContent;
+  }
 
   function getIcon(item) {
     if (item.type === "video") {
@@ -57,17 +65,7 @@ export default function ExercisePage() {
             <Card className="sidebar">
               <Card.Header className="sidebar-header">{ exercise.title }</Card.Header>
               <ListGroup variant="flush">
-                {mode === "learn" ? 
-                exercise.learnContent.map((item) => (
-                  <ListGroup.Item action href={`#${item.id}`} key={`#${item.id}`}>
-                    {getIcon(item)}
-                    <div className="sidebar-label-container">
-                      <div className="sidebar-menu-label">{item.menuLabel}</div>
-                      {item.subLabel}
-                    </div>
-                  </ListGroup.Item>
-                ))
-                : exercise.teachContent.map((item) => (
+                {activeContent.map((item) => (
                   <ListGroup.Item action href={`#${item.id}`} key={`#${item.id}`}>
                     {getIcon(item)}
                     <div className="sidebar-label-container">
@@ -95,18 +93,8 @@ export default function ExercisePage() {
           </Col>
           <Col md={8} className="p-4">
             <Tab.Content>
-              {mode === "learn" ? 
-              exercise.learnContent.map((item) => (
-                <Tab.Pane eventKey={`#${item.id}`} key={`#${item.id}`}>
-                  <h4>Exercise {exerciseId} content goes here...</h4>
-                  <h6>{item.menuLabel}</h6>
-                </Tab.Pane>
-              ))
-              : exercise.teachContent.map((item) => (
-                <Tab.Pane eventKey={`#${item.id}`} key={`#${item.id}`}>
-                  <h4>Exercise {exerciseId} content goes here...</h4>
-                  <h6>{item.menuLabel}</h6>
-                </Tab.Pane>
+              {activeContent.map((item) => (
+                <ExerciseTabPane item={item}/>
               ))}
             </Tab.Content>
           </Col>
