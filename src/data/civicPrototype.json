@@ -83,6 +83,7 @@
       ],
       "teachContent": [
         {
+          "id": "teach1",
           "menuLabel": "Implementation Guide",
           "subLabel":"Syllabus language, links, readings",
           "order": 1,
@@ -92,6 +93,7 @@
           "enableCopy": true
         },
         {
+          "id": "teach2",
           "menuLabel": "Examples",
           "subLabel":"15 minutes",
           "order": 2,
@@ -101,6 +103,7 @@
           "enableCopy": false
         },
         {
+          "id": "teach3",
           "menuLabel": "Get Support",
           "subLabel":"",
           "order": 3,
@@ -112,8 +115,8 @@
       ]
     },
     {
-      "id": 2,
-      "title": "Facial recognition",
+      "id": "2",
+      "title": "Facial Recognition",
       "categoryIDs":"1,2",
       "shortDesc": "The Gender Shades Project pilots an intersectional approach to inclusive product testing for AI. ",
       "longDesc": "The Gender Shades Project pilots an intersectional approach to inclusive product testing for AI. Gender Shades is a preliminary excavation of inadvertent negligence that will cripple the age of automation and further exacerbate inequality if left to fester. The deeper we dig, the more remnants of bias we will find in our technology. We cannot afford to look away this time, because the stakes are simply too high.  We risk losing the gains made with the civil rights movement and women's movement under the false assumption of machine neutrality. Automated systems are not inherently neutral. They reflect the priorities, preferences, and prejudices—the coded gaze—of those who have the power to mold artificial intelligence.",
@@ -122,6 +125,7 @@
       "tags": "facial recognition, artificial intelligence, AI, black, gender, intersectionality, race",
       "learnContent": [
         {
+          "id": "learn1",
           "menuLabel": "Welcome",
           "subLabel":"5 minutes",
           "order": 1,
@@ -133,6 +137,7 @@
           "credit": "Credit: Joy Buolamwini and Jimmy Day"
         },
         {
+          "id": "learn2",
           "menuLabel": "Example",
           "subLabel":"19 minutes",
           "order": 2,
@@ -144,6 +149,7 @@
           "credit": "Credit: Pioneer Works"
         },
         {
+          "id": "learn3",
           "menuLabel": "Apply",
           "subLabel":"15 minutes",
           "order": 3,
