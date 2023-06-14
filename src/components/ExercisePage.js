@@ -94,7 +94,7 @@ export default function ExercisePage() {
           <Col md={8} className="p-4">
             <Tab.Content>
               {activeContent.map((item) => (
-                <ExerciseTabPane item={item}/>
+                <ExerciseTabPane key={`#${item.id}`} item={item}/>
               ))}
             </Tab.Content>
           </Col>
