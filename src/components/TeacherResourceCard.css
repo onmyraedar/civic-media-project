@@ -1,7 +1,16 @@
+.teacher-resource-card .teacher-resource-card-title {
+  font-weight: 800;
+}
+
 .teacher-resource-col .teacher-resource-card {
   border-radius: 15px;
 }
 
-.teacher-resource-card .teacher-resource-card-title {
-  font-weight: 800;
+.teacher-resource-col .teacher-resource-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.teacher-resource-col .teacher-resource-card a:hover {
+  color: #0DCAF0;
 }

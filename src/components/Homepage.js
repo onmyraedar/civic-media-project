@@ -40,9 +40,7 @@ export default function Homepage() {
             {teacherResources.map((resource) => (
               <TeacherResourceCard
                 key={resource.id}
-                title={resource.title}
-                description={resource.shortDesc}
-                time={resource.lengthInMin}
+                resource={resource}
               />
             ))}
           <div className="divider mb-4"></div>
