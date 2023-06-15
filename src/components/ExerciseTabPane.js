@@ -1,14 +1,14 @@
 import Tab from "react-bootstrap/Tab";
 
+import ReactMarkdown from "react-markdown";
 import ReactPlayer from "react-player";
+import remarkGfm from "remark-gfm";
 
 import "./ExerciseTabPane.css";
 
 export default function ExerciseTabPane({ item }) {
   return(
     <Tab.Pane eventKey={`#${item.id}`}>
-      <h4>Exercise content goes here...</h4>
-      <h6>{item.menuLabel}</h6>
       {item.type === "video" &&
         <div className="player-container">
           <ReactPlayer 
@@ -20,6 +20,10 @@ export default function ExerciseTabPane({ item }) {
           />
         </div>
       }
+      <h2>{item.menuLabel}</h2>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {item.text}
+      </ReactMarkdown>
     </Tab.Pane>
   );
 }
