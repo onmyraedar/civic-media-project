@@ -28,7 +28,7 @@ export default function Homepage() {
               <ExerciseCard
                 title={exercise.title}
                 description={exercise.shortDesc}
-                img={{src: placeholderImg, alt: ""}}
+                img={{src: exercise.coverImg, alt: ""}}
                 credit={exercise.credit}
               />
             </Col>
