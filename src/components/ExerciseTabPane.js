@@ -21,9 +21,11 @@ export default function ExerciseTabPane({ item }) {
         </div>
       }
       <h2>{item.menuLabel}</h2>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {item.text}
-      </ReactMarkdown>
+      <ReactMarkdown 
+        children={item.text}
+        linkTarget="_blank"
+        remarkPlugins={[remarkGfm]} 
+      />
     </Tab.Pane>
   );
 }
