@@ -19,13 +19,14 @@ export default function Homepage() {
   return(
     <Container fluid className="flex-grow-1 d-flex flex-column">
       <Row className="flex-grow-1">
-        <Col lg={8} className="p-4">
+        <Col lg={8} className="exercise-col p-4">
           <h4>Exercises</h4>
           <p>One-hour exercises connecting technology with race and equity.</p>
           <Row xs={1} sm={2} className="g-4">
             {exercises.map((exercise) => (
             <Col key={exercise.id}>
               <ExerciseCard
+                id={exercise.id}
                 title={exercise.title}
                 description={exercise.shortDesc}
                 img={{src: exercise.coverImg, alt: ""}}

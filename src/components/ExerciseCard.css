@@ -5,3 +5,12 @@
 .exercise-card .light-gray-text {
   color: #68717A;
 }
+
+.exercise-col a, .exercise-col a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.exercise-col .exercise-card:hover {
+  background-color: #0dcaf033;
+}
