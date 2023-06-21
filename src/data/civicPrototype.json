@@ -40,7 +40,7 @@
       "categoryIDs":"1,2",
       "shortDesc": "Black expression through motion capture with creative technologist LaJune MacMillian. ",
       "longDesc": "**The Black Movement Project (BMP)** is a library for activists, performers & artists to create diverse XR projects, a space to research how and why we move, and an archive of Black existence. BMP seeks to grow community through the use of performances, XR experiences, workshops, conversations, and tool making. BMP incorporates a narrative component to be seen as both a live performance and movement portrait showing how Black movement has been used as a tool for the preservation of Black culture as well as a vehicle of self-evolution. This portrait follows the Movement journey of Nala Duma, a music producer, dancer, and artist living in NYC.",
-      "coverImg": "cover-images/black-expression.png",
+      "coverImg": "cover-images/black-expression.jpg",
       "credit": "Credit: LaJune MacMillan",
       "tags": "motion capture, black, dance, race",
       "learnContent": [
@@ -120,7 +120,7 @@
       "categoryIDs":"1,2",
       "shortDesc": "The Gender Shades Project pilots an intersectional approach to inclusive product testing for AI. ",
       "longDesc": "The Gender Shades Project pilots an intersectional approach to inclusive product testing for AI. Gender Shades is a preliminary excavation of inadvertent negligence that will cripple the age of automation and further exacerbate inequality if left to fester. The deeper we dig, the more remnants of bias we will find in our technology. We cannot afford to look away this time, because the stakes are simply too high.  We risk losing the gains made with the civil rights movement and women's movement under the false assumption of machine neutrality. Automated systems are not inherently neutral. They reflect the priorities, preferences, and prejudices—the coded gaze—of those who have the power to mold artificial intelligence.",
-      "coverImg": "cover-images/gender-shades.png",
+      "coverImg": "cover-images/gender-shades.jpg",
       "credit": "Credit: Joy Buolamwini",
       "tags": "facial recognition, artificial intelligence, AI, black, gender, intersectionality, race",
       "learnContent": [
