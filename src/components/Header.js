@@ -1,8 +1,11 @@
+import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Modal from "react-bootstrap/Modal";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavItem from "react-bootstrap/NavItem";
@@ -13,6 +16,8 @@ import { HouseDoorFill, Search } from "react-bootstrap-icons";
 import Logo from "../assets/logo.svg";
 
 export default function Header() {
+
+  const [showSearch, setShowSearch] = useState(false);
 
   const exercises = [
     {
@@ -28,11 +33,11 @@ export default function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
       <Container fluid>
-        <Navbar.Toggle aria-controls="offcanvas-expand-lg"></Navbar.Toggle>
+        <Navbar.Toggle className="me-3" aria-controls="offcanvas-expand-lg"></Navbar.Toggle>
         <Navbar.Offcanvas
           id="offcanvas-expand-lg"
           className="text-bg-dark"
-          placement="end"
+          placement="start"
           responsive="lg"
           aria-labelledby="offcanvas-label-expand-lg"
         >
@@ -62,7 +67,7 @@ export default function Header() {
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
-            <Form className="align-self-lg-center me-auto mt-4 mt-lg-0">
+            <Form className="d-none d-lg-block align-self-lg-center me-auto mt-4 mt-lg-0">
               <InputGroup>
                 <Form.Control
                   id="navbar-search-bar"
@@ -78,7 +83,7 @@ export default function Header() {
             </Form>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
-        <Navbar.Brand>
+        <Navbar.Brand className="me-auto me-lg-3">
           <img
             className=""
             alt="Civic Media Project Logo"
@@ -87,6 +92,41 @@ export default function Header() {
             height="50"
           />
         </Navbar.Brand>
+        <Button 
+          onClick={() => setShowSearch(true)}
+          className="d-lg-none"
+          variant="dark"
+          aria-label="Search"
+        >
+          <Search color="white" size={24}/>
+        </Button>
+        <Modal
+          show={showSearch}
+          onHide={() => setShowSearch(false)}
+          animation={false}
+          fullscreen="lg-down"
+        >
+          <Modal.Header className="d-flex">
+            <Form className="flex-grow-1 me-4">
+              <Form.Control
+                type="search"
+                placeholder="Search..."
+                autoFocus
+                aria-label="Search"
+              />
+            </Form>
+            <Button
+              onClick={() => setShowSearch(false)}
+              variant="primary"
+              aria-label="Cancel"
+            >
+              Cancel
+            </Button>
+          </Modal.Header>
+          <Modal.Body>
+            The search functionality is under construction. Check back soon!
+          </Modal.Body>
+        </Modal>
       </Container>
     </Navbar>
   );
