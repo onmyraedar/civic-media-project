@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -12,6 +14,10 @@ import placeholderImg from "../assets/placeholder.png";
 import "./Homepage.css";
 
 export default function Homepage() {
+
+  useEffect(() => {
+    document.title = "Home | Civic Media Project";
+  }, []);
 
   const exercises = data.exercises;
   const teacherResources = data.teacherResources;

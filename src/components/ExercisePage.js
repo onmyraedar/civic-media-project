@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
@@ -25,6 +25,10 @@ export default function ExercisePage() {
 
   // Each exercise should have a unique ID
   const exercise = exercises.find(exercise => exercise.id === exerciseId)
+
+  useEffect(() => {
+    document.title = `${exercise.title} | Civic Media Project`;
+  }, []);
 
   let activeContent = exercise.learnContent;
   if (mode === "learn") {

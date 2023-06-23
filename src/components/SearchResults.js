@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 
 import Col from "react-bootstrap/Col";
@@ -33,6 +34,11 @@ export default function SearchResults() {
   const [ searchParams ] = useSearchParams();
 
   const query = searchParams.get("query");
+
+  useEffect(() => {
+    document.title = `Search: "${query}" | Civic Media Project`;
+  });
+
   const numResults = exercises.length;
 
   return(
