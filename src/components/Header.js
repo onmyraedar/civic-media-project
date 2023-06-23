@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form as RouterForm } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -67,7 +68,10 @@ export default function Header() {
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
-            <Form className="d-none d-lg-block align-self-lg-center me-auto mt-4 mt-lg-0">
+            <RouterForm 
+              method="post" 
+              className="d-none d-lg-block align-self-lg-center me-auto mt-4 mt-lg-0"
+            >
               <InputGroup>
                 <Form.Control
                   id="navbar-search-bar"
@@ -75,12 +79,13 @@ export default function Header() {
                   placeholder="Search"
                   aria-describedby="navbar-search-bar-label"
                   aria-label="Search"
+                  name="query"
                 />
-                <Button variant="light" id="navbar-search-bar-label">
+                <Button type="submit" variant="light" id="navbar-search-bar-label">
                   <Search color="#6F6F6F"/>
                 </Button>
               </InputGroup>
-            </Form>
+            </RouterForm>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         <Navbar.Brand className="me-auto me-lg-3">
@@ -107,14 +112,20 @@ export default function Header() {
           fullscreen="lg-down"
         >
           <Modal.Header className="d-flex">
-            <Form className="flex-grow-1 me-4">
+            <RouterForm 
+              method="post"
+              onSubmit={() => setShowSearch(false)}
+              className="flex-grow-1 me-4"
+            >
               <Form.Control
+                id="modal-search-bar"
                 type="search"
                 placeholder="Search..."
                 autoFocus
                 aria-label="Search"
+                name="query"
               />
-            </Form>
+            </RouterForm>
             <Button
               onClick={() => setShowSearch(false)}
               variant="primary"
@@ -124,7 +135,7 @@ export default function Header() {
             </Button>
           </Modal.Header>
           <Modal.Body>
-            The search functionality is under construction. Check back soon!
+            Press your keyboard's Enter button to search.
           </Modal.Body>
         </Modal>
       </Container>

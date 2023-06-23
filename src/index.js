@@ -7,9 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import App from "./App";
+import App, { action as appAction } from "./App";
 import ExercisePage from "./components/ExercisePage";
 import Homepage from "./components/Homepage";
+import SearchResults, { loader as searchLoader } from "./components/SearchResults";
 import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,9 +18,10 @@ import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}> 
+    <Route path="/" element={<App />} action={appAction}> 
       <Route index element={<Homepage />} />
       <Route path="exercises/:exerciseId" element={<ExercisePage />} />
+      <Route path="search" element={<SearchResults />} loader={searchLoader} />
     </Route>
   )
 );
