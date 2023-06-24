@@ -55,7 +55,12 @@ export default function Header() {
                   <span className="d-lg-none">Home</span>
                 </Button>
               </Nav.Link>
-              <Dropdown as={NavItem} className="align-self-lg-center ms-lg-1 me-lg-3">
+              <Nav.Link href="/get-involved" className="d-lg-none">
+                <Button as="span" variant="dark">
+                  Get Involved
+                </Button>
+              </Nav.Link>
+              <Dropdown as={NavItem} className="align-self-lg-center ms-lg-1 me-lg-3 py-2 py-lg-0">
                 <Dropdown.Toggle variant="dark">Exercises</Dropdown.Toggle>
                 <Dropdown.Menu>
                   {exercises.map((exercise) => (
@@ -70,7 +75,7 @@ export default function Header() {
             </Nav>
             <RouterForm 
               method="post" 
-              className="d-none d-lg-block align-self-lg-center me-auto mt-4 mt-lg-0"
+              className="d-none d-lg-block align-self-lg-center mt-4 mt-lg-0"
             >
               <InputGroup>
                 <Form.Control
@@ -88,6 +93,13 @@ export default function Header() {
             </RouterForm>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
+        <Nav className="d-none d-lg-block ms-auto me-lg-3">
+          <Nav.Link href="/get-involved">
+            <Button as="span" variant="dark">
+              Get Involved
+            </Button>
+          </Nav.Link>
+        </Nav>
         <Navbar.Brand className="me-auto me-lg-3">
           <img
             className=""

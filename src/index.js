@@ -9,6 +9,7 @@ import {
 
 import App, { action as appAction } from "./App";
 import ExercisePage from "./components/ExercisePage";
+import GetInvolvedPage from "./components/GetInvolvedPage";
 import Homepage from "./components/Homepage";
 import SearchResults, { loader as searchLoader } from "./components/SearchResults";
 import reportWebVitals from "./reportWebVitals";
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route index element={<Homepage />} />
       <Route path="exercises/:exerciseId" element={<ExercisePage />} />
       <Route path="search" element={<SearchResults />} loader={searchLoader} />
+      <Route path="get-involved" element={<GetInvolvedPage />} />
     </Route>
   )
 );
