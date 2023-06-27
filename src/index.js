@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -21,7 +22,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} action={appAction}> 
       <Route index element={<Homepage />} />
-      <Route path="exercises/:exerciseId" element={<ExercisePage />} />
+      <Route path="/exercises/:exerciseId">
+        <Route index element={<Navigate to="learn1" replace />} />
+        <Route path=":contentId" element={<ExercisePage />} />
+      </Route>
       <Route path="search" element={<SearchResults />} loader={searchLoader} />
       <Route path="get-involved" element={<GetInvolvedPage />} />
     </Route>

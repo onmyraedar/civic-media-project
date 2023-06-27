@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -17,9 +17,9 @@ import "./ExercisePage.css";
 
 export default function ExercisePage() {
 
-  const { exerciseId } = useParams();
-  const [activeTabKey, setActiveTabKey] = useState("#learn1");
-  const [mode, setMode] = useState("learn");
+  const navigate = useNavigate();
+  const { exerciseId, contentId } = useParams();
+  const [activeTabKey, setActiveTabKey] = useState(contentId);
 
   const exercises = data.exercises;
 
@@ -29,6 +29,20 @@ export default function ExercisePage() {
   useEffect(() => {
     document.title = `${exercise.title} | Civic Media Project`;
   }, []);
+
+  function getMode() {
+    let mode;
+    const isInLearn = exercise.learnContent.find(content => content.id === contentId)
+    const isInTeach = exercise.teachContent.find(content => content.id === contentId)
+    if (isInLearn) {
+      mode = "learn";
+    } else if (isInTeach) {
+      mode = "teach";
+    }
+    return mode;
+  }
+
+  const [mode, setMode] = useState(getMode);
 
   let activeContent = exercise.learnContent;
   if (mode === "learn") {
@@ -49,20 +63,28 @@ export default function ExercisePage() {
 
   function handleClickLearn() {
     setMode("learn");
-    setActiveTabKey("#learn1");
+    handleSwitchTab("learn1");
   }
 
   function handleClickTeach() {
     setMode("teach");
-    setActiveTabKey("#teach1");
+    handleSwitchTab("teach1");
   }
+
+  const handleSwitchTab = (tabKey) => {
+    const previousTabKey = contentId;
+    if (previousTabKey !== tabKey) {
+      navigate(`/exercises/${exerciseId}/${tabKey}`);
+    }
+    setActiveTabKey(tabKey);
+  };
 
   return (
     <Container fluid className="flex-grow-1 d-flex flex-column">
       <Tab.Container 
         id="exercise-content-tabs"
         activeKey={activeTabKey}
-        onSelect={(k) => setActiveTabKey(k)}
+        onSelect={(tab) => handleSwitchTab(tab)}
       >
         <Row className="flex-grow-1">
           <Col md={4} className="d-flex flex-column p-4 light-gray-bckgd">
@@ -70,7 +92,7 @@ export default function ExercisePage() {
               <Card.Header className="sidebar-header">{ exercise.title }</Card.Header>
               <ListGroup variant="flush">
                 {activeContent.map((item) => (
-                  <ListGroup.Item action href={`#${item.id}`} key={`#${item.id}`}>
+                  <ListGroup.Item action eventKey={`${item.id}`} key={`${item.id}`}>
                     {getIcon(item)}
                     <div className="sidebar-label-container">
                       <div className="sidebar-menu-label">{item.menuLabel}</div>
@@ -98,7 +120,7 @@ export default function ExercisePage() {
           <Col md={8} className="p-4">
             <Tab.Content>
               {activeContent.map((item) => (
-                <ExerciseTabPane key={`#${item.id}`} item={item}/>
+                <ExerciseTabPane key={`${item.id}`} item={item}/>
               ))}
             </Tab.Content>
           </Col>
