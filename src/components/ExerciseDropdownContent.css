@@ -1,0 +1,11 @@
+.exercise-dropdown-header,
+.exercise-dropdown-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exercise-dropdown-menu {
+  max-height: 75vh;
+  overflow-y: auto;
+}

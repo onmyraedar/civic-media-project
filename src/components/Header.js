@@ -53,7 +53,7 @@ export default function Header() {
               </Nav.Link>
               <Dropdown as={NavItem} id="exercise-dropdown" className="align-self-lg-center ms-lg-1 me-lg-3 py-2 py-lg-0">
                 <Dropdown.Toggle variant="dark">Exercises</Dropdown.Toggle>
-                <Dropdown.Menu className="w-100">
+                <Dropdown.Menu className="exercise-dropdown-menu w-100 p-2">
                   <ExerciseDropdownContent />
                 </Dropdown.Menu>
               </Dropdown>

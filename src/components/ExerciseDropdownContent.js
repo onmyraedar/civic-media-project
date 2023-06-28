@@ -3,6 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
 
 import data from "../data/civicPrototype.json";
+import "./ExerciseDropdownContent.css";
 
 export default function ExerciseDropdownContent() {
 
@@ -21,14 +22,17 @@ export default function ExerciseDropdownContent() {
     .filter(category => category.exercises.length > 0);
 
   return (
-    <Row md={1} lg={3}>
+    <Row xs={1} lg={4} className="g-3">
       {dropdownCategories.map((category) => (
         <Col key={category.id}>
-          <Dropdown.Header>{category.label}</Dropdown.Header>
+          <Dropdown.Header className="exercise-dropdown-header">
+            {category.label}
+          </Dropdown.Header>
           {category.exercises.map((exercise) => {
             return (
               <Dropdown.Item 
                 key={exercise.id}
+                className="exercise-dropdown-link"
                 href={`/exercises/${exercise.id}`}
               >
                 {exercise.title}
