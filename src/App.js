@@ -1,5 +1,6 @@
 import { createSearchParams, redirect, Outlet } from "react-router-dom";
 
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 /**
@@ -19,6 +20,7 @@ export default function App() {
     <div className="vh-100 d-flex flex-column">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 }
