@@ -14,22 +14,13 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 import { HouseDoorFill, Search } from "react-bootstrap-icons";
 
+import ExerciseDropdownContent from "./ExerciseDropdownContent";
 import Logo from "../assets/logo.svg";
+import "./Header.css";
 
 export default function Header() {
 
   const [showSearch, setShowSearch] = useState(false);
-
-  const exercises = [
-    {
-      id: "1",
-      title: "Motion Capture",
-    },
-    {
-      id: "2",
-      title: "Facial Recognition",
-    }
-  ];
 
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
@@ -60,16 +51,10 @@ export default function Header() {
                   Get Involved
                 </Button>
               </Nav.Link>
-              <Dropdown as={NavItem} className="align-self-lg-center ms-lg-1 me-lg-3 py-2 py-lg-0">
+              <Dropdown as={NavItem} id="exercise-dropdown" className="align-self-lg-center ms-lg-1 me-lg-3 py-2 py-lg-0">
                 <Dropdown.Toggle variant="dark">Exercises</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  {exercises.map((exercise) => (
-                  <Dropdown.Item 
-                    key={exercise.id}
-                    href={`/exercises/${exercise.id}`}>
-                    {exercise.title}
-                  </Dropdown.Item>
-                  ))}
+                <Dropdown.Menu className="w-100">
+                  <ExerciseDropdownContent />
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
