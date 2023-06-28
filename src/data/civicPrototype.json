@@ -2,6 +2,7 @@
   "teacherResources":[
     {
       "id": "1",
+      "featured": true,
       "order":1,
       "title": "A Terrain of Trust",
       "shortDesc": "In this episode, A Terrain of Trust, Anne and Steve are joined by Brandy Monk-Payton, Assistant Professor of Communication and Media Studies at Fordham University who shares her thoughts about representation, collaboration and effective instruction.",
@@ -11,6 +12,7 @@
     },
     {
       "id": "2",
+      "featured": true,
       "order":2,
       "title": "Diversity, Equity and Inclusion",
       "shortDesc": "In this episode, Diversity, Equity and Inclusion Anne and Steve are joined by Kendra Dunbar, Assistant Director for Equity and Inclusion at Fordham University who shares her thoughts about trauma and being supportive and engaged members of our University and classroom communities.",

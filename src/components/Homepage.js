@@ -20,7 +20,10 @@ export default function Homepage() {
   }, []);
 
   const exercises = data.exercises;
-  const teacherResources = data.teacherResources;
+  const teacherResources = data.teacherResources
+    .filter(resource => resource.featured)
+    .sort((resource1, resource2) => resource1.order - resource2.order)
+    .slice(0, 2);
 
   return(
     <Container fluid className="flex-grow-1 d-flex flex-column">
