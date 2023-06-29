@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import PaginatedExercises from "./PaginatedExercises";
 
 import ExerciseCard from "./ExerciseCard";
 import TeacherResourceCard from "./TeacherResourceCard";
@@ -31,16 +32,7 @@ export default function Homepage() {
         <Col lg={8} className="exercise-col p-4">
           <h4>Exercises</h4>
           <p>One-hour exercises connecting technology with race and equity.</p>
-          <Row xs={1} sm={2} className="g-4">
-            {exercises.map((exercise) => (
-            <Col key={exercise.id}>
-              <ExerciseCard
-                exercise={exercise}
-                img={{src: exercise.coverImg, alt: ""}}
-              />
-            </Col>
-            ))}
-          </Row>
+          <PaginatedExercises exercises={exercises} />
         </Col>
         <Col lg={4} className="teacher-resource-col d-flex flex-column p-4 light-gray-bckgd">
           <h4 className="mb-4">Teacher Resources</h4>
