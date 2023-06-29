@@ -2,11 +2,12 @@ import { useState } from "react";
 
 import Card from "react-bootstrap/Card";
 
+import { getFirstContentId } from "../utils";
 import placeholderImg from "../assets/placeholder.png";
 
 import "./ExerciseCard.css";
 
-export default function ExerciseCard({ id, title, description, img, credit }) {
+export default function ExerciseCard({ exercise, img }) {
 
   const [pastImgError, setPastImgError] = useState(false);
 
@@ -21,15 +22,15 @@ export default function ExerciseCard({ id, title, description, img, credit }) {
   }
 
   return(
-    <a href={`/exercises/${id}`}>
+    <a href={`/exercises/${exercise.id}/${getFirstContentId(exercise)}`}>
       <Card className="exercise-card h-100">
         <Card.Img variant="top" src={img.src} alt={img.alt} onError={handleImageError}/>
         <Card.Body>
-          <Card.Title className="exercise-card-title mb-3 mt-1">{title}</Card.Title>
-          <Card.Text className="light-gray-text">{description}</Card.Text>
+          <Card.Title className="exercise-card-title mb-3 mt-1">{exercise.title}</Card.Title>
+          <Card.Text className="light-gray-text">{exercise.shortDesc}</Card.Text>
           <Card.Text>
             <small className="light-gray-text text-body-secondary">
-              {credit}
+              {exercise.credit}
             </small>
           </Card.Text>
         </Card.Body>

@@ -13,6 +13,7 @@ import ExerciseTabPane from "./ExerciseTabPane";
 import { LayoutTextSidebarReverse, PersonVideo, PlayBtn } from "react-bootstrap-icons";
 
 import data from "../data/civicPrototype.json";
+import { getFirstContentId } from "../utils";
 import "./ExercisePage.css";
 
 export default function ExercisePage() {
@@ -46,9 +47,11 @@ export default function ExercisePage() {
 
   let activeContent = exercise.learnContent;
   if (mode === "learn") {
-    activeContent = exercise.learnContent;
+    activeContent = exercise.learnContent
+      .sort((item1, item2) => item1.order - item2.order);
   } else {
-    activeContent = exercise.teachContent;
+    activeContent = exercise.teachContent
+      .sort((item1, item2) => item1.order - item2.order);
   }
 
   function getIcon(item) {
@@ -63,18 +66,18 @@ export default function ExercisePage() {
 
   function handleClickLearn() {
     setMode("learn");
-    handleSwitchTab("learn1");
+    handleSwitchTab(getFirstContentId(exercise, "learn"));
   }
 
   function handleClickTeach() {
     setMode("teach");
-    handleSwitchTab("teach1");
+    handleSwitchTab(getFirstContentId(exercise, "teach"));
   }
 
   const handleSwitchTab = (tabKey) => {
     const previousTabKey = contentId;
     if (previousTabKey !== tabKey) {
-      navigate(`/exercises/${exerciseId}/${tabKey}`);
+      navigate(`/exercises/${exerciseId}/${tabKey}`, { replace: true });
     }
     setActiveTabKey(tabKey);
   };

@@ -35,11 +35,8 @@ export default function Homepage() {
             {exercises.map((exercise) => (
             <Col key={exercise.id}>
               <ExerciseCard
-                id={exercise.id}
-                title={exercise.title}
-                description={exercise.shortDesc}
+                exercise={exercise}
                 img={{src: exercise.coverImg, alt: ""}}
-                credit={exercise.credit}
               />
             </Col>
             ))}

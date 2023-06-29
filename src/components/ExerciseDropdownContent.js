@@ -2,6 +2,8 @@ import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
 
+import { getFirstContentId } from "../utils";
+
 import data from "../data/civicPrototype.json";
 import "./ExerciseDropdownContent.css";
 
@@ -33,7 +35,7 @@ export default function ExerciseDropdownContent() {
               <Dropdown.Item 
                 key={exercise.id}
                 className="exercise-dropdown-link"
-                href={`/exercises/${exercise.id}`}
+                href={`/exercises/${exercise.id}/${getFirstContentId(exercise)}`}
               >
                 {exercise.title}
               </Dropdown.Item>
