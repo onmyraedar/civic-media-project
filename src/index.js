@@ -3,13 +3,13 @@ import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
 
 import App, { action as appAction } from "./App";
 import ExercisePage from "./components/ExercisePage";
+import ErrorPage from "./components/ErrorPage";
 import GetInvolvedPage from "./components/GetInvolvedPage";
 import Homepage from "./components/Homepage";
 import SearchResults, { loader as searchLoader } from "./components/SearchResults";
@@ -20,14 +20,15 @@ import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />} action={appAction}> 
+    <Route path="/" element={<App />} action={appAction}>
       <Route index element={<Homepage />} />
-      <Route path="/exercises/:exerciseId">
-        <Route index element={<Navigate to="learn1" replace />} />
-        <Route path=":contentId" element={<ExercisePage />} />
-      </Route>
+      <Route path="/exercises/:exerciseId/:contentId"
+        element={<ExercisePage />}
+        errorElement={<ErrorPage />}
+      />
       <Route path="search" element={<SearchResults />} loader={searchLoader} />
       <Route path="get-involved" element={<GetInvolvedPage />} />
+      <Route path="*" element={<ErrorPage />} />
     </Route>
   )
 );
