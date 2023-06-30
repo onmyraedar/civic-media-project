@@ -69,7 +69,7 @@ export default function ExerciseTabPane({ item }) {
   return(
     <Tab.Pane eventKey={`${item.id}`}>
       {item.type === "video" &&
-        <div className="player-container">
+        <div className="player-container mb-3">
           <ReactPlayer 
             className="react-player"
             controls 

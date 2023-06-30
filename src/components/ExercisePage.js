@@ -29,7 +29,7 @@ export default function ExercisePage() {
 
   useEffect(() => {
     document.title = `${exercise.title} | Civic Media Project`;
-  }, []);
+  }, [exercise.title]);
 
   function getMode() {
     let mode;
