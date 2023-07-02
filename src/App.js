@@ -3,6 +3,9 @@ import { createSearchParams, redirect, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
+import { getFirstContentId } from "./utils";
+import data from "./data/civicPrototype.json";
+
 /**
  * Retrieves a user's search parameters from form data when a search form
  * is submitted.
@@ -12,7 +15,12 @@ import Header from "./components/Header";
 export async function action({ request }) {
   const formData = await request.formData();
   const searchConstraints = Object.fromEntries(formData);
-  return redirect(`/search?${createSearchParams(searchConstraints)}`);
+  if ("exerciseId" in searchConstraints) {
+    const exercise = data.exercises.find(exercise => exercise.id === searchConstraints.exerciseId);
+    return redirect(`/exercises/${exercise.id}/${getFirstContentId(exercise)}`);
+  } else {
+    return redirect(`/search?${createSearchParams(searchConstraints)}`);
+  }
 }
 
 export default function App() {

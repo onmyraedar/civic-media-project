@@ -20,7 +20,12 @@ export async function loader({ request }) {
   if (query) {
     exercises = data.exercises.filter((exercise) => {
       const title = exercise.title.toLowerCase();
-      return title.includes(query.toLowerCase());
+      const tags = exercise.tags;
+      if (title.includes(query.toLowerCase()) || tags.includes(query.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
     });
   } else {
     exercises = data.exercises;

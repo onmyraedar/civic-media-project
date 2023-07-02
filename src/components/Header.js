@@ -1,26 +1,89 @@
 import { useState } from "react";
-import { Form as RouterForm } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import Modal from "react-bootstrap/Modal";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavItem from "react-bootstrap/NavItem";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+
 import { HouseDoorFill, Search } from "react-bootstrap-icons";
 
 import ExerciseDropdownContent from "./ExerciseDropdownContent";
+
+import { 
+  compareSearchOptions,
+  getSearchOptionLabel,
+  groupSearchOption,
+  renderSearchOption
+} from "../search-utils";
+import data from "../data/civicPrototype.json";
 import Logo from "../assets/logo.svg";
 import "./Header.css";
 
 export default function Header() {
 
-  const [showSearch, setShowSearch] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const submit = useSubmit();
+
+  const exercises = data.exercises;
+  
+  const tags = exercises
+    .reduce((accumulator, exercises) => {
+      return accumulator.concat(exercises.tags);
+      }, []);
+
+  const uniqueTags = [...new Set(tags)];
+
+  const searchOptions = uniqueTags.concat(exercises);
+
+  const filter = createFilterOptions();
+
+  function handleSubmitSearch(event, value, reason) {
+
+    let formData = new FormData();
+
+    if (reason !== "clear") {
+      // If the selected option is a query string
+      if (typeof value === "string") {
+        formData.append("query", value);
+      // If the selection option is an exercise
+      } else if (value && value.title) {
+        formData.append("exerciseId", value.id);
+      }
+      submit(formData, { method: "post" });
+      setShowSearchModal(false);
+    }
+  }
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+    typography: {
+      fontFamily: [
+        "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", 
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", 
+        "Helvetica Neue", "sans-serif"].join(","),
+    }
+  });
+
+  const lightTheme = createTheme({
+    typography: {
+      fontFamily: [
+        "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", 
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", 
+        "Helvetica Neue", "sans-serif"].join(","),
+    }
+  });
 
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
@@ -53,29 +116,49 @@ export default function Header() {
               </Nav.Link>
               <Dropdown as={NavItem} id="exercise-dropdown" className="align-self-lg-center ms-lg-1 me-lg-3 py-2 py-lg-0">
                 <Dropdown.Toggle variant="dark">Exercises</Dropdown.Toggle>
-                <Dropdown.Menu className="exercise-dropdown-menu w-100 p-2">
+                <Dropdown.Menu className="w-100">
                   <ExerciseDropdownContent />
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
-            <RouterForm 
-              method="post" 
+            <div 
+              role="search"
               className="d-none d-lg-block align-self-lg-center mt-4 mt-lg-0"
             >
-              <InputGroup>
-                <Form.Control
-                  id="navbar-search-bar"
-                  type="search"
-                  placeholder="Search"
-                  aria-describedby="navbar-search-bar-label"
-                  aria-label="Search"
-                  name="query"
-                />
-                <Button type="submit" variant="light" id="navbar-search-bar-label">
-                  <Search color="#6F6F6F"/>
-                </Button>
-              </InputGroup>
-            </RouterForm>
+              <ThemeProvider theme={darkTheme}>
+              <Autocomplete
+                id="navbar-search-autocomplete"
+                autoHighlight
+                filterOptions={(options, params) => {
+                  const filtered = filter(options, params);
+                  const { inputValue } = params;
+
+                  // Add user input to autocomplete
+                  const optionExists = options.some(
+                    (option) => inputValue === option);
+                  if (inputValue !== "" && !optionExists) {
+                    filtered.push(`${inputValue}`);
+                  }
+          
+                  return filtered.sort(compareSearchOptions);
+                }}
+                freeSolo
+                getOptionLabel={(option) => getSearchOptionLabel(option)}
+                groupBy={(option) => groupSearchOption(option)}
+                onChange={handleSubmitSearch}
+                options={searchOptions}
+                size="small"
+                sx={{ width: 300 }}
+                renderInput={(params) => 
+                  <TextField {...params} 
+                    label="Search"
+                    variant="filled"
+                    name="query"
+                  />}
+                renderOption={(props, option) => renderSearchOption(props, option, filter)}
+              />
+              </ThemeProvider>
+            </div>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         <Nav className="d-none d-lg-block ms-auto me-lg-3">
@@ -95,7 +178,7 @@ export default function Header() {
           />
         </Navbar.Brand>
         <Button 
-          onClick={() => setShowSearch(true)}
+          onClick={() => setShowSearchModal(true)}
           className="d-lg-none"
           variant="dark"
           aria-label="Search"
@@ -103,36 +186,70 @@ export default function Header() {
           <Search color="white" size={24}/>
         </Button>
         <Modal
-          show={showSearch}
-          onHide={() => setShowSearch(false)}
+          show={showSearchModal}
+          onHide={() => setShowSearchModal(false)}
           animation={false}
           fullscreen="lg-down"
         >
-          <Modal.Header className="d-flex">
-            <RouterForm 
-              method="post"
-              onSubmit={() => setShowSearch(false)}
-              className="flex-grow-1 me-4"
-            >
-              <Form.Control
-                id="modal-search-bar"
-                type="search"
-                placeholder="Search..."
-                autoFocus
-                aria-label="Search"
-                name="query"
-              />
-            </RouterForm>
+          <Modal.Header className="d-flex justify-content-space-between">
+            <Modal.Title>Search for content</Modal.Title>
             <Button
-              onClick={() => setShowSearch(false)}
-              variant="primary"
-              aria-label="Cancel"
-            >
-              Cancel
+                onClick={() => setShowSearchModal(false)}
+                size="md"
+                variant="secondary"
+                aria-label="Close modal"
+              >
+                Close
             </Button>
           </Modal.Header>
-          <Modal.Body>
-            Press your keyboard's Enter button to search.
+          <Modal.Body className="d-flex">
+            <div 
+              role="search"
+              className="flex-grow-1 me-4"
+            >
+              <ThemeProvider theme={lightTheme}>
+              <Autocomplete
+                id="modal-search-autocomplete"
+                autoHighlight
+                filterOptions={(options, params) => {
+                  const filtered = filter(options, params);
+                  const { inputValue } = params;
+
+                  // Add user input to autocomplete
+                  const optionExists = options.some(
+                    (option) => inputValue === option);
+                  if (inputValue !== "" && !optionExists) {
+                    filtered.push(`${inputValue}`);
+                  }
+
+                  return filtered.sort(compareSearchOptions);
+                }}                
+                freeSolo
+                getOptionLabel={(option) => getSearchOptionLabel(option)}
+                groupBy={(option) => groupSearchOption(option)}
+                ListboxProps={
+                  {
+                    style:{
+                        maxHeight: "75vh",
+                    }
+                  }
+                }
+                onChange={handleSubmitSearch}
+                open
+                options={searchOptions.sort(compareSearchOptions)}
+                size="small"
+                PaperComponent={(props) => <Paper elevation={0} {...props} />}
+                renderInput={(params) => 
+                  <TextField {...params} 
+                    autoFocus
+                    label="Search"
+                    variant="standard"
+                    name="query"
+                  />}
+                renderOption={(props, option) => renderSearchOption(props, option)}
+              />
+              </ThemeProvider>
+            </div>
           </Modal.Body>
         </Modal>
       </Container>
