@@ -45,6 +45,11 @@ export default function ExercisePage() {
 
   const [mode, setMode] = useState(getMode);
 
+  useEffect(() => {
+    setActiveTabKey(contentId);
+    setMode(getMode);
+  }, [contentId])
+
   let activeContent = exercise.learnContent;
   if (mode === "learn") {
     activeContent = exercise.learnContent
